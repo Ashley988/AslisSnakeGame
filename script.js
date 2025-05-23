@@ -50,10 +50,37 @@ else if (direction === 'down' && dy === 0) { dx = 0; dy = grid; }
 } 
 
 
-function gameLoop() { 
-    requestAnimationFrame(gameLoop); 
-    if (++count < 5) return; 
-    count = 0; 
+function gameLoop() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+  snake.unshift(head);
+
+  if (head.x === apple.x && head.y === apple.y) {
+    apple = { x: randomPosition(), y: randomPosition() };
+  } else {
+    snake.pop();
+  }
+
+  // Zeichnen
+  ctx.fillStyle = "red";
+  ctx.fillRect(apple.x, apple.y, grid - 1, grid - 1);
+
+  ctx.fillStyle = color;
+  for (let segment of snake) {
+    ctx.fillRect(segment.x, segment.y, grid - 1, grid - 1);
+  }
+
+  if (
+    head.x < 0 || head.x >= canvas.width ||
+    head.y < 0 || head.y >= canvas.height ||
+    snake.slice(1).some(seg => seg.x === head.x && seg.y === head.y)
+  ) {
+    clearInterval(intervalId);
+    alert("Game Over!");
+    resetGame();
+  }
+}
 
     ctx.clearRect(0, 0, canvas.width, canvas.height); 
     let head = { x: snake[0].x + dx, y: snake[0].y + dy }; 
