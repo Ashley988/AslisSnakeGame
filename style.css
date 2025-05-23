@@ -1,0 +1,83 @@
+body { 
+    margin: 0; 
+    padding: 0; 
+    font-family: sans-serif; 
+    background-color: black; 
+    color: white; display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+} 
+
+h1 { 
+    margin-top: 20px; 
+} 
+nav { 
+    background: #222; 
+    width: 100%; padding: 10px; 
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+} 
+nav a { 
+    color: white; 
+    text-decoration: none; 
+    font-weight: bold; 
+} 
+nav a:hover { 
+    text-decoration: underline; 
+} 
+
+#colorSelect, #wallOption, #startScreen { 
+    margin-top: 20px; 
+    text-align: center; 
+} 
+
+#colorSelect button, #wallOption button, #startScreen button { 
+    background: #333; 
+    color: white; 
+    border: 2px solid white; 
+    font-size: 16px; 
+    margin: 5px; 
+    padding: 10px 20px;
+    border-radius: 8px; 
+    cursor: pointer; 
+} 
+
+#colorSelect button:hover, #wallOption button:hover, #startScreen button:hover { 
+    background-color: #555; 
+} 
+
+#gameArea { 
+    margin-top: 20px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+} 
+
+canvas { 
+    border: 2px solid white; 
+    max-width: 90vw; height: auto; 
+} 
+
+.controller { 
+    margin-top: 20px; 
+    text-align: center; 
+} 
+
+.controller .row { 
+    margin: 5px 0; 
+
+} .controller button { 
+    background: #444; color: white; 
+    border: 2px solid #fff; 
+    font-size: 20px; 
+    width: 60px; 
+    height: 60px; 
+    margin: 5px; 
+    border-radius: 10px; 
+    cursor: pointer; 
+} 
+.controller button:hover { 
+    background-color: #666; 
+}
+
